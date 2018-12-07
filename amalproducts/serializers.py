@@ -2,16 +2,7 @@ from rest_framework import serializers
 from amalproducts.models import Product
 from django.contrib.auth.models import User
 
-# class UserProductSerializer(serializers.ModelSerializer):
-#     id = serializers.ReadOnlyField(source='member.id')
-#     name = serializers.ReadOnlyField(source='member.name')
-
-#     class Meta:
-#         model = UserProduct
-#         fields = ('id', 'name')
-
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
         fields = ('id', 'username')

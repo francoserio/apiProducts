@@ -34,12 +34,9 @@ class MarkingAsFavourite(generics.UpdateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, product_id, **kwargs):
         instance = Product.objects.get(id=product_id)
-        myuser = User.objects.get(pk=self.request.user.id)
+        myuser = User.objects.get(id=self.request.user.id)
         instance.owner.add(myuser)
         instance.save()
-        # serializer = self.get_serializer(instance)
-        # serializer.is_valid(raise_exception=True)
-        # self.perform_update(serializer)
         return HttpResponse('El producto ' + product_id + ' se ha marcado como favorito')
 
 # def product_list(request):
