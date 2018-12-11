@@ -6,7 +6,7 @@ class Product(models.Model):
     product_number = models.IntegerField()
     stock = models.IntegerField()
     price = models.FloatField()
-    owner = models.ManyToManyField(User)
+    owner = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.name
