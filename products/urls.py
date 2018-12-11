@@ -18,7 +18,7 @@ from django.urls import path, include
 from .views import login
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('1/login/', login),
-    path('', include('amalproducts.urls')),
+    url(r'^admin/$', admin.site.urls),
+    url(r'^1/login/$', login),
+    url(r'^$', include('amalproducts.urls')),
 ]
