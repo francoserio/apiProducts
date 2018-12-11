@@ -7,10 +7,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username')
 
-class ProductSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(max_length=250)
-    product_number = serializers.IntegerField()
-    stock = serializers.IntegerField()
-    price = serializers.FloatField()
+class ProductSerializer(serializers.ModelSerializer):
     owner = UserSerializer(many=True)
+    class Meta:
+        model = Product
+        fields = ('id', 'name', 'product_number', 'stock', 'price', 'owner')
