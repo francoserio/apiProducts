@@ -24,7 +24,7 @@ class ProductList(generics.ListCreateAPIView):
 
 class FavouritesList(generics.ListCreateAPIView):
     serializer_class = ProductSerializer  
-    permission_classes = (permissions.IsAuthenticated, IsOwner)
+    permission_classes = (permissions.IsAuthenticated, IsOwner,)
     
     def get_queryset(self):
         return Product.objects.filter(owner=self.request.user)
